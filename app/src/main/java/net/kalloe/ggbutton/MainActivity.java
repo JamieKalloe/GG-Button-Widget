@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -53,7 +52,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.ibGG:
                 try {
+                    ggButton.setEnabled(false);
                     ggSound.start();
+                    while(ggSound.isPlaying())
+                        ggButton.setImageDrawable(getResources().getDrawable(R.drawable.ggbuttonpressed));
+                    ggButton.setImageDrawable(getResources().getDrawable(R.drawable.ggbuttons));
+                    ggButton.setEnabled(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Unable to claim victory", Toast.LENGTH_LONG).show();
