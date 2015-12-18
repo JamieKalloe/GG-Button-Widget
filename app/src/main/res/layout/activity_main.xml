@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/ggbuttons"
         android:id="@+id/ibGG"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:background="@null"
         android:scaleType="fitCenter"
         android:layout_centerInParent="true"
         android:layout_margin="50dp"
