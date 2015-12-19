@@ -52,12 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()) {
             case R.id.ibGG:
                 try {
-                    ggButton.setEnabled(false);
                     ggSound.start();
-                    while(ggSound.isPlaying())
-                        ggButton.setImageDrawable(getResources().getDrawable(R.drawable.ggbuttonpressed));
-                    ggButton.setImageDrawable(getResources().getDrawable(R.drawable.ggbuttons));
-                    ggButton.setEnabled(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(this, "Unable to claim victory", Toast.LENGTH_LONG).show();
