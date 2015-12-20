@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             this.ggButton.setOnClickListener(this);
             this.ggSound = MediaPlayer.create(this, R.raw.ggsound);
             AdView adBanner = (AdView) findViewById(viewIds[1]);
-//            AdRequest adRequest = new AdRequest.Builder().build();
-            AdRequest adRequest = new AdRequest.Builder()
-                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
-                    .addTestDevice("AC98C820A50B4AD8A2106EDE96FB87D4")  // An example device ID
-                    .build();
+            AdRequest adRequest = new AdRequest.Builder().build();
+//            AdRequest adRequest = new AdRequest.Builder()
+//                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+//                    .addTestDevice("AC98C820A50B4AD8A2106EDE96FB87D4")  // An example device ID
+//                    .build();
             adBanner.loadAd(adRequest);
         } catch (Exception e) {
             e.printStackTrace();
