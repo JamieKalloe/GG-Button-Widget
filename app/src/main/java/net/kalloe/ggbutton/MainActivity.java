@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     //Variables
@@ -19,13 +22,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initializeView(R.id.ibGG);
+        initializeView(R.id.ibGG, R.id.banner_ad);
     }
 
     private void initializeView(int...viewIds) {
-        this.ggButton = (ImageButton) findViewById(viewIds[0]);
-        this.ggButton.setOnClickListener(this);
-        this.ggSound = MediaPlayer.create(this, R.raw.ggsound);
+        try {
+            this.ggButton = (ImageButton) findViewById(viewIds[0]);
+            this.ggButton.setOnClickListener(this);
+            this.ggSound = MediaPlayer.create(this, R.raw.ggsound);
+            AdView adBanner = (AdView) findViewById(viewIds[1]);
+//            AdRequest adRequest = new AdRequest.Builder().build();
+            AdRequest adRequest = new AdRequest.Builder()
+                    .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)        // All emulators
+                    .addTestDevice("AC98C820A50B4AD8A2106EDE96FB87D4")  // An example device ID
+                    .build();
+            adBanner.loadAd(adRequest);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

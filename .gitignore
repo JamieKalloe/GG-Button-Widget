@@ -5,4 +5,4 @@
 .DS_Store
 /build
 /captures
-app/src/main/res/layout/banner_ad.xml
+app/src/main/res/values/ads.xml
